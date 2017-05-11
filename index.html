@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+			<form id="mapForm">
+				<select name="cars">
+					<option value="needle">Space Needle</option>
+					<option value="uw">University of Washington</option>
+					<option value="troll">Fremont Troll</option>
+					<option value="locks">Ballard Locks</option>
+				</select>
+  			<input type="submit">
+    <script>
+      function initMap() {
+        var seattle = {lat: 47.6083112, lng: -122.3383779};
+				var needle = {lat: 47.6205099, lng: -122.3057086};
+				var uw = {lat: 47.6553387, lng: -122.3383779};
+				var troll = {lat: 47.650974, lng: -122.349449};
+				var locks = {lat: 47.6659926, lng: -122.3989817};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: seattle
+        });
+        var marker = new google.maps.Marker({
+          position: seattle,
+          map: map
+        });
+
+			var form = document.getElementById("mapForm");
+				document.getElementById("mapForm").addEventListener("click", function () {
+				form.submit();
+			});	
+				
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX7Wa9VhYS_5S49CQjxssnIDW4OrXL5rY&callback=initMap">
+    </script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+  </body>
+</html>
